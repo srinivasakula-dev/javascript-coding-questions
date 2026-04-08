@@ -1,0 +1,17 @@
+const input = [1, 2, 3, 4, 5]
+// Output: 15
+
+// Approach - 1
+const sum = input.reduce((acc, curr) => acc + curr, 0)
+// Time Complexity - O(n) -> iterates through all elements once
+// Space Complexity - O(1) -> no extra space used (just accumulator)
+console.log(sum)
+
+// Approach - 2
+let result = 0
+for(i of input){
+    result += i
+}
+// Time Complexity - O(n) -> single iteration
+// Space Complexity - O(1) -> constant space
+console.log(result)
