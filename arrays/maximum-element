@@ -1,0 +1,22 @@
+
+// Q: Find maximum element
+const array = [3, 7, 2, 9, 1]
+// Output: 9
+
+// Approach - 1
+const max = array.reduce((acc, curr)=> acc > curr? acc: acc=curr)
+// Time Complexity - O(n) -> O(n)
+// Space Complexity - O(1) -> O(1)
+console.log(max)
+
+
+// Approach - 2
+let maxNum = array[0]
+for(num of array){
+    if (num > maxNum) {
+        maxNum = num
+    }
+}
+// Time Complexity - O(n) -> O(n)
+// Space Complexity - O(1) -> O(1)
+console.log(maxNum)
