@@ -1,0 +1,23 @@
+// Q: Find minimum element
+const array = [3, 7, 2, 9, 1, -5, -2]
+// Output: -5
+
+// Approach - 1
+const min = array.reduce((acc, curr)=> acc < curr ? acc : curr)
+// Time Complexity - O(n) -> O(n)
+// Space Complexity - O(1) -> O(1)
+console.log(min)
+
+
+// Approach - 2
+let minNum = array[0]
+for (let num of array){
+    if (num < minNum) {
+        minNum = num
+    }
+}
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+console.log(minNum)
+
+
