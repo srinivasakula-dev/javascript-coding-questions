@@ -1,0 +1,57 @@
+// Q: Reverse an array
+const array = [1, 2, 3, 4, 5]
+// Output: [5, 4, 3, 2, 1]
+
+// Approach - 1 (reverse())
+// reverse() mutates original array, so create a copy first
+
+const copy1 = [...array] //reate new array (to avoid mutation)
+const result1 = copy1.reverse()
+
+console.log(result1)
+
+// Time Complexity - O(n)
+// Space Complexity - O(n) (because of copy)
+// Space Complexity - O(1) (if works on original array)
+
+// Approach - 2 (New Array - No Mutation)
+let reversedArray = []
+for (let i = array.length - 1; i >= 0; i--) {
+    reversedArray.push(array[i])
+}
+
+console.log(reversedArray)
+
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+//Approach - 3 (Two-Pointer)
+//This mutates original array, so create a copy first
+
+const copy2 = [...array] // ceate new array (to avoid mutation)
+
+let left = 0
+let right = copy2.length - 1
+
+while (left < right) {
+    let temp = copy2[left]
+    copy2[left] = copy2[right]
+    copy2[right] = temp
+
+    left++
+    right--
+}
+
+console.log(copy2)
+// Time Complexity - O(n)
+// Space Complexity - O(n) (because of copy)
+
+
+// Approach - 4 (reduce())
+// Does NOT mutate original array
+
+const reversed = array.reduce((acc, curr) => [curr, ...acc], [])
+console.log(reversed)
+// Time Complexity - O(n²) (because of spread operator)
+// Space Complexity - O(n)
