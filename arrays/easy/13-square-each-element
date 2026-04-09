@@ -1,0 +1,42 @@
+
+// Q: Square each element
+const array = [1, 2, 3, 4]
+// Output: [1, 4, 9, 16]
+
+// Approach - 1 (loop)
+let result1 = []
+for(let num of array){
+    result1.push(num ** 2)
+}
+console.log(result1)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+// Approach - 2 (reduce())
+const result2 = array.reduce((acc, num)=>{
+    acc.push(num ** 2)
+    return acc
+}, [])
+console.log(result2)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+// Approach - 3 (Function)
+function squareArray(arr) {
+    return arr.map(num => num ** 2)
+}
+console.log(squareArray(array))
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+// Approach - 4: (map())
+const result3 = array.map(num => num ** 2)
+
+console.log(result3)
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+
+
