@@ -1,0 +1,40 @@
+
+// Q: Check if all numbers are even
+const array = [2, 4, 6, 8]
+// Output: true
+
+// Approach - 1 (loop)
+let result1 = true
+for(let num of array){
+    if(num % 2 !== 0){
+        result1 = false
+        break
+    }
+}
+console.log(result1)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+// Approach - 2 (every())
+const result2 = array.every(item => item % 2 == 0)
+console.log(result2)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+// Approach - 3 (some() - inverse logic)
+const result3 = !array.some(item=>item%2 !== 0)
+console.log(result3)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+
+// Approach 4: Function 
+function areAllEven(arr){
+    for(let num of arr){
+        if (num % 2 !== 0) return false
+    }
+    return true
+}
+console.log(areAllEven(array))
+// Time Complexity: O(n)
+// Space Complexity: O(1)
