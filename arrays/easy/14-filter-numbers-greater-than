@@ -1,0 +1,45 @@
+// Q: Filter numbers greater than 5
+const array = [3, 8, 2, 10, 4]
+// Output: [8, 10]
+
+// Approach - 1 (loop)
+let result1 = []
+for(let num of array){
+    if(num > 5){
+        result1.push(num)
+    }
+}
+console.log(result1)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+// Approach - 2 (reduce())
+const result2 = array.reduce((acc, num)=>{
+    if(num > 5){
+        acc.push(num)
+    }
+    return acc
+}, [])
+console.log(result2)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+// Approach - 3 (Function)
+function filterGreaterThanFive(arr) {
+    return arr.filter(num => num > 5)
+}
+
+console.log(filterGreaterThanFive(array))
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+// Approach - 4: (filter())
+const result3 = array.filter(num => num > 5)
+console.log(result3)
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+
+
