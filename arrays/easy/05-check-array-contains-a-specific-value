@@ -1,0 +1,49 @@
+// Q: Check if array contains a specific value
+const array = [1, 2, 3, 4, 5]
+let value = 3
+// Output: true
+
+
+// Approach - 1 (includes())
+const result1 = array.includes(value)
+console.log(result1)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+
+// Approach - 2 (some()) it return direct boolean value
+const result2 = array.some(item => item === value)
+console.log(result2)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+
+// Approach - 3 (for...of loop)
+let found = false
+for (let num of array) {
+    if (num === value) {
+        found = true
+        break
+    }
+}
+console.log(found)
+
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+
+// Approach - 4 (find())
+// Not recommended for existence check (returns element, not boolean)
+
+const result4 = array.find(item => item === value) !== undefined
+console.log(result4)
+
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+
+// Approach - 5 (indexOf())
+const result5 = array.indexOf(value) !== -1
+console.log(result5)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
