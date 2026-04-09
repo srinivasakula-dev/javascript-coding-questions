@@ -1,0 +1,32 @@
+
+// Q: Get first n elements
+const array = [1, 2, 3, 4, 5]
+let n= 3
+// Output: [1, 2, 3]
+
+// Approach - 1 (splice)
+const copyArray = [...array] //mutates original array, so create a copy first
+const result1 = copyArray.splice(0, n)
+console.log(result1)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+// Approach - 2 (slice) does not modify original array
+const result2 = array.slice(0, n)
+console.log(result2)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+// Approach - 3(Loops)
+const result3 = []
+for(let i=0; i<n; i++){
+    result3.push(array[i])
+}
+console.log(result3)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+
+
