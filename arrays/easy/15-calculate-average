@@ -1,0 +1,31 @@
+// Q: Calculate average
+const array = [10, 20, 30, 40]
+// Output: 25
+
+// Approach - 1 (loop)
+let sum = 0
+for(let num of array){
+    sum = sum+num
+}
+let result1 = sum / array.length
+console.log(result1)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+
+// Approach - 2 (reduce())
+const total = array.reduce((acc, num) => acc + num, 0)
+const result2 = total / array.length
+console.log(result2)
+// Time Complexity - O(n)
+// Space Complexity: O(1)
+
+// Approach - 3 (Function)
+function average(arr) {
+    if (arr.length === 0) return 0 // handle empty array
+    const sum = arr.reduce((acc, num) => acc + num, 0)
+    return sum / arr.length
+}
+console.log(average(array))
+// Time Complexity: O(n)
+// Space Complexity: O(1)
