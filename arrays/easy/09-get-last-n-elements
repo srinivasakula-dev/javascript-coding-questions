@@ -1,0 +1,40 @@
+
+// Q: Get last n elements
+const array = [1, 2, 3, 4, 5]
+let n= 2
+// Output: [4, 5]
+
+// Approach - 1 (splice)
+const copyArray = [...array] //mutates original array, so create a copy first
+const result1 = copyArray.splice(copyArray.length - n)
+console.log(result1)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+// Approach - 2 (slice) does not modify original array
+// array.slice(-0) returns full array if n = -0
+const result2 = n === 0 ? [] : array.slice(-n)
+console.log(result2)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+// Approach - 3 (slice) does not modify original array
+const result3 = array.slice(array.length - n)
+console.log(result3)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+// Approach - 4(Loops)
+const result4 = []
+for(let i=array.length - n; i<array.length; i++){
+    result4.push(array[i])
+}
+console.log(result4)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+
+
