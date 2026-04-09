@@ -1,0 +1,41 @@
+// Q: Count even numbers
+const array = [1, 2, 3, 4, 5, 6]
+// Output: 3
+
+// Approach - 1 (loop)
+let result1 = 0
+for(let num of array){
+    if(num % 2 === 0){
+        result1 += 1
+    }
+}
+console.log(result1)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+// Approach - 2 (filter())
+const result2 = array.filter(item => item % 2 === 0).length
+console.log(result2)
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+// Approach - 3 (reduce())
+const result3 = array.reduce((count, num)=>{
+    return num % 2 === 0 ? count + 1 : count
+}, 0)
+console.log(result3)
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+// Approach - 4 (function)
+function countEven(arr) {
+    let count = 0
+    for (let num of arr) {
+        if (num % 2 === 0) count++
+    }
+    return count
+}
+
+console.log(countEven(array))
+// Time Complexity: O(n)
+// Space Complexity: O(1)
