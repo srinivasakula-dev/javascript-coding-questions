@@ -1,0 +1,52 @@
+// Q: Remove duplicates from array
+const array = [1, 2, 2, 3, 4, 4, 5]
+// Output: [1, 2, 3, 4, 5]
+
+
+// Approach - 1 (loop + includes())
+const result1 = []
+for(let num of array){
+    if(!result1.includes(num)){
+        result1.push(num)
+    }
+}
+console.log(result1)
+// Time Complexity - O(n²) 
+// includes() is O(n) and runs inside loop → O(n * n)
+// Space Complexity - O(n)
+
+
+
+
+// Approach - 2 (Set)
+const result2 = [...new Set(array)]
+console.log(result2)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+
+
+
+// Approach - 3 (filter + indexOf())
+const result3 = array.filter((item, index)=>{
+    return array.indexOf(item) === index
+})
+console.log(result3)
+// Time Complexity - O(n²)
+// indexOf() inside filter → nested iteration
+// Space Complexity - O(n)
+
+
+
+// Approach - 4 (Object / Hash Map)
+let seen = {}
+let result4 = []
+for(let num of array){
+    if(!seen[num]){
+        seen[num] = true
+        result4.push(num)
+    }
+}
+console.log(result4)
+// Time Complexity - O(n)
+// Space Complexity - O(n)
+  
