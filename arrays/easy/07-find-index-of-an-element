@@ -1,0 +1,33 @@
+
+// Q: Find index of an element
+const array = [10, 20, 30, 40]
+let value = 30
+// Output: 2
+
+// Approach - 1 (findIndex())
+const result1 = array.findIndex(item => item === value)
+console.log(result1)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+// Approach - 2 (for loop)
+let result2 = null
+for(let i=0; i < array.length; i++){
+    if(array[i] === value) {
+        result2 = i
+        break
+    }
+}
+console.log(result2)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+
+// Approach - 3 (indexOf())
+const result3 = array.indexOf(value)
+console.log(result3)
+// Time Complexity - O(n)
+// Space Complexity - O(1)
+
+
+
