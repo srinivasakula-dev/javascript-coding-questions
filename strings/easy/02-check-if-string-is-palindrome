@@ -1,0 +1,75 @@
+
+// Q:Check if string is palindrome
+let input = "madam"
+// output: true
+
+// Approach - 1 (Built-in methods)
+let str = input.split("").reverse().join("")
+console.log(input === str)
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+
+// Approach - 2 (for...of loop - prepend)
+let result1 = ""
+for(let chr of input){
+    result1 = chr + result1
+}
+console.log(result1 === input)
+// Time Complexity: O(n^2) (string concatenation each iteration)
+// Space Complexity: O(n)
+
+// Approach - 3 (reduce())
+const result2 = input.split("").reduce((acc, curr)=>curr + acc, "")
+console.log(result2 === input)
+// Time Complexity: O(n^2) 
+// Space Complexity: O(n)
+
+// Approach - 4 (while loop)
+let result3 = ""
+let i = input.length - 1
+while(i >=0){
+    result3 += input[i]
+    i--
+}
+console.log(result3 === input)
+// Time Complexity: O(n²)
+// Space Complexity: O(n)
+
+// Approach - 5 (for loop with index)
+let result4 = ""
+for(let i = input.length-1; i >=0; i--){
+    result4 += input[i]
+}
+console.log(result4 === input)
+// Time Complexity: O(n²)
+// Space Complexity: O(n)
+
+// Approach - 6 (Two-pointer swap using array)
+let arr = input.split("")
+let left = 0, right = input.length-1
+while(left < right){
+    [arr[left],arr[right]] = [arr[right],arr[left]]
+    left++;
+    right--;
+}
+console.log(arr.join("") === input)
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
+// Approach - 7 (Better Approach)
+let lft = 0, rht = input.length - 1
+let isPalindrome = true
+while(left < right){
+    if(input[left] !== input[right]){
+        isPalindrome = false
+        break
+    }
+    left ++
+    right --
+}
+console.log(isPalindrome)
+// Time Complexity: O(n)
+// Space Complexity: O(1) ---> here space complexity is O(1)
+
+
