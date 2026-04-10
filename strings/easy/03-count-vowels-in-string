@@ -1,0 +1,56 @@
+
+// Q: Count vowels in string
+let input = "hello world"
+// output: 3
+let vowels = ["a", "e", "i", "o", "u"]
+// Approach - 1 (loop)
+let result1 = 0
+for(let chr of input){
+    if(vowels.includes(chr)){
+        result1  = result1 + 1
+    }
+}
+console.log(result1)
+// Time Complexity: O(n) 
+// Space Complexity: O(1)
+
+// Approach - 2 (using Set)
+
+let vowels1 = new Set(["a", "e", "i", "o", "u"])
+let result2 = 0
+for(let chr of input){
+    if(vowels1.has(chr)) result2 ++ 
+}
+console.log(result2)
+// Time Complexity: O(n) 
+// Space Complexity: O(1)
+
+
+// Approach - 3 (filter())
+const result3 = input.split("").filter(chr=>"aeiou".includes(chr)).length
+console.log(result3)
+// Time Complexity: O(n) 
+// Space Complexity: O(n)
+
+// Approach - 4 (reduce())
+const result4 = input.split("").reduce((count, chr)=>"aeiou".includes(chr) ? count+1:count, 0)
+console.log(result4)
+// Time Complexity: O(n) 
+// Space Complexity: O(n)
+
+// Approach - 5 (Regex)
+const result5 = (input.match(/[aeiou]/g) || []).length
+console.log(result5)
+// Time Complexity: O(n) 
+// Space Complexity: O(n)
+
+// Approach - 6 (fastest + minimal)
+let result6 = 0
+for(let chr of input){
+    if(chr === "a" || chr === "e" || chr === "i" || chr === "o" || chr === "u"){
+        result6 ++
+    }
+}
+console.log(result6)
+// Time Complexity: O(n) 
+// Space Complexity: O(1)
