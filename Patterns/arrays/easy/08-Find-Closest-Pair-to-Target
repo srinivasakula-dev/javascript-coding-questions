@@ -1,0 +1,32 @@
+// Find Closest Pair to Target
+
+let arr = [10, 22, 28, 29, 30, 40];
+let target = 54;
+
+let left = 0;
+let right = arr.length - 1;
+
+let minDiff = Infinity;
+let result = [];
+
+while (left < right) {
+    let sum = arr[left] + arr[right];
+    let diff = Math.abs(target - sum);
+    // Update closest pair
+    if (diff < minDiff) {
+        minDiff = diff;
+        result = [arr[left], arr[right]];
+    }
+
+    // Move pointers
+    if (sum < target) {
+        left++;
+    } else {
+        right--;
+    }
+}
+
+console.log(result);
+
+// Time Complexity ---> O(n)
+// Space Complexity ---> O(n)
