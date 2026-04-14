@@ -1,0 +1,31 @@
+// Find Pairs with Given Sum (Multiple pairs)
+let arr = [3, 1, 6, 2, 5, 4] 
+let target = 7
+// Output: [[1,6], [2,5], [3,4]]
+
+// Sorted Array
+arr.sort((a, b)=>a-b)
+
+
+let left = 0
+let right = arr.length - 1
+let result = []
+
+while(left < right){
+    let sum = arr[left] + arr[right]
+    if(sum === target){
+        let values = [arr[left], arr[right]]
+        result.push(values)
+        left ++
+        right --
+    }else if(sum < target){
+        left ++
+    }else{
+        right --
+    }
+}
+
+console.log(result)
+
+// Time Complexity ---> O(n)
+// Space Complexity ---> O(1)
