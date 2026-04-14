@@ -1,0 +1,21 @@
+// Check if Array is Palindrome
+let arr = [1, 2, 3, 2, 1]
+// Output: true
+
+let left = 0
+let right = arr.length - 1
+
+let result = true
+
+while(left < right){
+    if(arr[left] !== arr[right]){
+        result = false
+        break
+    }
+    left ++
+    right --
+}
+console.log(result)
+
+// Time Complexity ---> O(n)
+// Space Complexity ---> O(1)
