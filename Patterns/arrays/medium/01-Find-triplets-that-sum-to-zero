@@ -1,0 +1,52 @@
+// Find triplets that sum to zero
+let arr = [-1, 0, 1, 2, -1, -4]
+let target = 0
+
+arr.sort((a, b) => a - b)
+let resultSet = new Set()
+for(let i =0; i<arr.length-2; i++){
+    let left = i+1
+    let right = arr.length -1
+    while(left < right){
+        let sum = arr[i] + arr[left] + arr[right]
+        if(sum === target){
+            resultSet.add([arr[i], arr[left], arr[right]].toString())
+            left ++
+            right --
+        }else if(sum < target){
+            left ++
+        }else{
+            right --
+        }
+    }
+}
+
+// convert Set back to array
+let result = [...resultSet].map(item =>
+    item.split(',').map(Number)
+)
+console.log(result)
+
+// Time Complexity: O(n²)
+// Space Complexity: O(n²)
+
+// Steps to solve this problem
+// 3Sum = sort + fix one element + solve remaining with two pointers
+
+// STEPS
+// Sort array first
+// Fix one element (i)
+// Use two pointers (left, right)
+// while left < right:
+//    sum = arr[i] + arr[left] + arr[right]
+//    if sum == 0:
+//        store triplet in Set (to avoid duplicates)
+//        move both pointers
+//    if sum < 0:
+//        left++
+//    if sum > 0:
+//        right--
+// Convert Set → array at end
+
+
+
