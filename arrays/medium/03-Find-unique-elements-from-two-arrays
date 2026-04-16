@@ -1,0 +1,48 @@
+// Find unique elements from two arrays
+let input =  [1, 2, 3]
+let input2 =  [2, 3, 4]
+// Output: [1, 4]
+// Approach - 1 (Two loops + Set)
+let res1 = []
+let set1 = new Set(input)
+let set2 = new Set(input2)
+
+// elements in input but not in input2
+for (let num of input) {
+  if (!set2.has(num)) {
+    res1.push(num)
+  }
+}
+// elements in input2 but not in input
+for (let num of input2) {
+  if (!set1.has(num)) {
+    res1.push(num)
+  }
+}
+// Time Complexity - O(n + m)
+// Space Complexity - O(n + m)
+console.log(res1)
+
+
+// Approach - 2 (Using filter)
+let part1 = input.filter(num => !input2.includes(num))
+let part2 = input2.filter(num => !input.includes(num))
+let res2 = [...part1, ...part2]
+
+// Time Complexity - O(n * m)
+// Space Complexity - O(k)
+console.log(res2)
+
+
+// Approach - 3 (Using Set + filter - Optimal)
+let setB = new Set(input2)
+let setA = new Set(input)
+
+let res3 = [
+  ...input.filter(num => !setB.has(num)),
+  ...input2.filter(num => !setA.has(num))
+]
+
+// Time Complexity - O(n + m)
+// Space Complexity - O(n + m)
+console.log(res3)
