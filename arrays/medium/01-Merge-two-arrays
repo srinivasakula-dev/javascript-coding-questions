@@ -1,0 +1,20 @@
+// Merge two arrays
+// Approach - 1
+let input = [1, 2]
+let input2 =  [3, 4]
+// console.log([...input, ...input2])
+// Time Complexity ---> O(n + m)
+// Space Complexity---> O(n + m)
+
+// Approach - 2 (concat())
+console.log(input.concat(input2))
+// Time Complexity ---> O(n + m)
+// Space Complexity---> O(n + m)
+
+// Approach - 3 (forEach)
+input2.forEach(item=>input.push(item))
+console.log(input)
+// Time Complexity: O(m)
+// Space Complexity: O(1)
+// Slight overhead due to callback, but same complexity.
+
