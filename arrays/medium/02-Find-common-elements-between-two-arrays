@@ -1,0 +1,75 @@
+// Find common elements between two arrays
+let input = [1, 2, 3, 4]
+let input2 = [3, 4, 5, 6,8]
+// op:[3, 4]
+
+// Approach - 1 (Brute Force using includes)
+let res1 = []
+for (let num of input) {
+  if (input2.includes(num)) {
+    res1.push(num)
+  }
+}
+
+// Time Complexity - O(n * m)
+// Space Complexity - O(k)
+console.log(res1)
+
+
+// Approach - 2 (Using Set - Optimal)
+let res2 = []
+let set2 = new Set(input2)
+for(let num of input){
+    if(set2.has(num)){
+        res2.push(num)
+    }
+}
+
+// Time Complexity - O(n + m)
+// Space Complexity - O(m)
+
+
+// Approach - 3 (Using filter + Set)
+let set = new Set(input2)
+let res3 = input.filter(item=>set.has(item))
+// Time Complexity - O(n + m)
+// Space Complexity - O(m)
+console.log(res3)
+
+// Approach - 4 (Two Pointer - Only if arrays are sorted)
+let i = 0, j = 0
+let res4 = []
+
+while (i < input.length && j < input2.length) {
+  if (input[i] === input2[j]) {
+    res4.push(input[i])
+    i++
+    j++
+  } else if (input[i] < input2[j]) {
+    i++
+  } else {
+    j++
+  }
+}
+
+// Time Complexity - O(n + m)
+// Space Complexity - O(1)
+console.log(res4)
+
+
+// Approach - 5 (includes)
+let res5 = []
+let uni = [...input, ...input2]
+uni = new Set(uni)
+
+for (let num of uni) {
+  if (input.includes(num) && input2.includes(num)) {
+    res5.push(num)
+  }
+}
+
+// Time Complexity - O((n + m)^2)
+// Space Complexity - O(n + m)
+console.log(res5)
+
+
