@@ -1,0 +1,22 @@
+//Flatten nested array level
+function flattenLevel(arr, depth = 1) {
+    let res = []
+    
+    for (let item of arr) {
+        if (Array.isArray(item) && depth > 0) {
+            res = res.concat(flattenLevel(item, depth - 1))
+        } else {
+            res.push(item)
+        }
+    }
+    
+    return res
+}
+
+let arr = [1, [2, 3], [4, [5, 6]]]
+
+console.log(flattenLevel(arr, 1)) // [1, 2, 3, 4, [5, 6]]
+console.log(flattenLevel(arr, 2)) // [1, 2, 3, 4, 5, 6]
+
+// Approach - 2
+console.log(arr.flat(1))
