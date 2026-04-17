@@ -1,0 +1,9 @@
+//  Rotate array right by k positions
+let arr = [1, 2, 3, 4, 5]
+let k = 2
+// Output: [4, 5, 1, 2, 3]
+k = k % arr.length
+let result = arr.slice(-k).concat(arr.slice(0, arr.length-k))
+console.log(result)
+// Time Complexity --> O(n)
+// Space Complexity --> O(n)
