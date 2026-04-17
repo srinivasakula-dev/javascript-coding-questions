@@ -1,0 +1,17 @@
+// Find second largest element
+let arr = [5, 2, 8, 1, 9]
+// Output: 8
+let largest = -Infinity
+let secondLargest = -Infinity
+
+for(let num of arr){
+    if(num > largest){
+        secondlargest = largest
+        largest = num
+    }else if(num > secondLargest && num !== largest){
+        secondLargest = num
+    }
+}
+console.log(secondlargest)
+// Time Complexity --> O(n)
+// Space Complexity --> O(1)
