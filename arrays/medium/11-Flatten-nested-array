@@ -1,0 +1,20 @@
+//Flatten nested array
+let arr = [1, [2, 3], [4, [5, 6]]]
+// Output: [1, 2, 3, 4, [5, 6]]
+
+function flattenArray(arr){
+    let res = []
+    for(let num of arr){
+        if(Array.isArray(num)){
+            res = res.concat(flattenArray(num))
+        }else{
+            res.push(num)
+        }
+    }
+    return res
+}
+
+console.log(flattenArray(arr))
+
+// Approach - 2
+console.log(arr.flat(Infinity))
