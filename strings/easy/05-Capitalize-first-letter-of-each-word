@@ -1,0 +1,31 @@
+// 1.Capitalize first letter of each word
+let  str = "hello world"
+// Output: "Hello World"
+
+let arr = str.split(" ")
+let result = ""
+for(let str of arr){
+    let chr = str[0].toUpperCase() + str.slice(1, str.length)
+    result = result +" "+ chr
+}
+console.log(result.trim())
+
+
+
+const result1 = str.split(" ").reduce((acc, cur)=>{
+    let chr = cur[0].toUpperCase() + cur.slice(1, cur.length)
+   return  acc = acc + " " + chr
+}, "")
+
+console.log(result1.trim())
+
+
+
+
+
+let result2 = str
+  .split(" ")
+  .map(word => word[0].toUpperCase() + word.slice(1))
+  .join(" ");
+
+console.log(result2); // "Hello World"
