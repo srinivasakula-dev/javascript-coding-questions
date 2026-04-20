@@ -1,0 +1,33 @@
+//Extract numbers from string
+let input = "abc123def456"
+// Output: ["123", "456"]
+
+let result = input.match(/\d+/g) || []
+console.log(result)
+
+//Method - 1
+
+// \d → digit
+// + → one or more digits
+// g → find all matches
+
+//Method - 2
+
+let arr = []
+let current = ""
+for(let i = 0; i<input.length; i++){
+    if(!isNaN(input[i]) && input[i] !=""){
+        current += input[i]
+    }else{
+        if(current){
+            arr.push(current)
+            current =""
+        }
+    }
+}
+
+if(current){
+    arr.push(current)
+}
+
+console.log(arr)
