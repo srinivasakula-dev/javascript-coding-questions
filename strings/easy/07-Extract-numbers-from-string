@@ -5,6 +5,8 @@ let input = "abc123def456"
 let result = input.match(/\d+/g) || []
 console.log(result)
 
+//if you want extract only letters use this ----> let result = input.match(/[a-zA-Z]+/g) || []
+
 //Method - 1
 
 // \d → digit
