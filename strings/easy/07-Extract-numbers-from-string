@@ -14,7 +14,7 @@ console.log(result)
 // g → find all matches
 
 //Method - 2
-
+// isNaN() checks whether a value cannot be converted into a valid number. It first tries type conversion, then returns true if the result is NaN.
 let arr = []
 let current = ""
 for(let i = 0; i<input.length; i++){
