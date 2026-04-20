@@ -1,0 +1,15 @@
+//Implement string compression
+let input = "aabcccccaaa"
+// Output: "a2b1c5a3"
+
+let result  = ""
+let count = 0
+for(let i =0; i<input.length ; i++){
+    if(input[i] == input[i+1]){
+        count ++
+    }else{
+        result = result+input[i]+count
+        count =1
+    }
+}
+console.log(result)
