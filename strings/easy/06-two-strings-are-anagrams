@@ -1,0 +1,24 @@
+// Check if two strings are anagrams
+let str1 = "listen"
+let str2 = "silent"
+// Output: true
+
+function checkAnagrams(str1, str2){
+    if(str1.length != str2.length) return false
+    
+    let result = {}
+    
+    for(let chr of str1){
+        result[chr] = (result[chr] || 0) +1
+    }
+    
+    for(let chr of str2){
+        if(!result[chr]){
+            return false
+        }
+        result[chr]--
+    }
+    return true
+}
+console.log(checkAnagrams(str1, str2))
+
