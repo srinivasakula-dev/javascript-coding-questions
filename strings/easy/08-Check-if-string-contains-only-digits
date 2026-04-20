@@ -1,0 +1,13 @@
+Check if string contains only digits
+let input = "12345"
+// Output: true
+
+//isNaN() checks whether a value cannot be converted into a valid number. It first tries type conversion, then returns true if the result is NaN.
+let result = true
+for(let chr of input){
+    if(isNaN(chr)){
+        result = false
+         break;
+    }
+}
+console.log(result)
