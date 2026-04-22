@@ -1,0 +1,14 @@
+// Group by property
+let arr =  [{age:20}, {age:20}, {age:30}] 
+// Output: {20: [{age:20}, {age:20}], 30: [{age:30}]}
+
+let result = {}
+for(let obj of arr){
+    let key = obj.age
+    if(!result[key]){
+        result[key] = [obj]
+    }else{
+        result[key].push(obj)
+    }
+}
+console.log(result)
