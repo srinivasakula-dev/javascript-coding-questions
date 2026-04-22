@@ -1,0 +1,10 @@
+// Deep clone object
+let obj =  {a:1, b:{c:2}}
+// Output: New object with same values
+
+let obj2 = JSON.parse(JSON.stringify(obj))
+console.log(obj2)
+
+// Approach - 2
+let obj3 = structuredClone(obj)
+console.log(obj3)
