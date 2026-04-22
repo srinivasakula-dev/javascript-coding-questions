@@ -1,0 +1,20 @@
+// Nested object flatten
+let obj = {a:{b:{c:1}}}
+// Output: {'a.b.c':1}
+
+function flattenObj(obj, prefix = "", result={}){
+    for(let key in obj){
+        if(obj.hasOwnProperty(key)){
+            let newKey = prefix ? `${prefix}.${key}` : key
+            if(typeof obj[key] === "object" && obj[key] !== null){
+                flattenObj(obj[key], newKey, result)
+            }else{
+                result[newKey] = obj[key]
+            }
+        }
+    }
+    return result
+}
+
+console.log(flattenObj(obj))
+
