@@ -1,0 +1,26 @@
+// Check if two objects are equal
+let obj1 = {a:1, b:2}
+let obj2 = {a:1, b:2}
+// Output: true
+
+// Approach - 1
+console.log(JSON.stringify(obj1) === JSON.stringify(obj2))
+// Approach - 2
+
+
+function isEqual(obj1, obj2){
+    let keys1 = Object.keys(obj1)
+    let keys2 = Object.keys(obj2)
+    if(keys1.length !== keys2.length) return false
+   
+    for(let key of keys1){
+        if(obj2[key] !== obj1[key]){
+            return false
+        }
+    }
+    return true
+}
+
+
+
+console.log(isEqual(obj1, obj2))
