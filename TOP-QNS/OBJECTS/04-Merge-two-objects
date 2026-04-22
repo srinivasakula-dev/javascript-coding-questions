@@ -1,0 +1,10 @@
+// Merge two objects
+let obj1 =  {a:1, b:2}
+let obj2 = {b:3, c:4}
+// Output: {a:1, b:3, c:4}
+
+console.log({...obj1, ...obj2})
+
+//Approach - 2
+let merged = Object.assign({}, obj1, obj2)
+console.log(merged)
