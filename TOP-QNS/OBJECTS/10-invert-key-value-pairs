@@ -1,0 +1,12 @@
+// Invert key-value pairs
+let obj =  {a:1, b:2}
+// Output: {1:'a', 2:'b'}
+
+let result = {}
+
+for(let key in obj){
+  let val = obj[key]
+  result[val] = key
+}
+
+console.log(result)
