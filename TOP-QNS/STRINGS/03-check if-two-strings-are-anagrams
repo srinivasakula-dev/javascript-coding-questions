@@ -1,0 +1,19 @@
+// Check if two strings are anagrams
+
+let str1 = "listen";
+let str2 = "silent";
+
+let result = true;
+
+if (str1.length !== str2.length) {
+  result = false;
+} else {
+  let res1 = str1.split("").sort().join("");
+  let res2 = str2.split("").sort().join("");
+
+  if (res1 !== res2) {
+    result = false;
+  }
+}
+
+console.log(result);
