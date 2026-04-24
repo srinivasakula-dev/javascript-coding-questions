@@ -1,0 +1,14 @@
+// Pick properties
+let obj = {a:1, b:2, c:3, d:4}
+let pick = ['a','c']
+// Output: {a:1, c:3}
+
+let result = {}
+
+for(let key of pick){
+  if(key in obj){
+    result[key] = obj[key]
+  }
+}
+
+console.log(result)
