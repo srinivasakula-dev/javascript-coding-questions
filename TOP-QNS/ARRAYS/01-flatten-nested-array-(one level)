@@ -1,0 +1,21 @@
+// Flatten nested array (one level)
+let arr =  [1, [2, 3], [4, [5, 6]]]
+let level = 1
+// Output: [1, 2, 3, 4, [5, 6]]
+
+console.log(arr.flat(1))
+
+function flattenArray(arr, level){
+  let result =[]
+  
+  for(let val of arr){
+    if(Array.isArray(val) && level > 0){
+      result = result.concat(flattenArray(val, level-1))
+    }else{
+      result.push(val)
+    }
+  }
+  return result
+}
+
+console.log(flattenArray(arr, level))
