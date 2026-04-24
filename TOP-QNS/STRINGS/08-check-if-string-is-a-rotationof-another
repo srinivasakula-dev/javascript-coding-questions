@@ -1,0 +1,13 @@
+// Check if string is a rotation of another
+ let str1 = "abcde"
+ let str2 = "cdeab"
+// Output: true
+
+// If str2 is a rotation of str1, then it will always be a substring of str1 + str1.
+if(str1.length !== str2.length){
+  console.log(false)
+}else{
+  console.log((str1 + str1).includes(str2))
+}
+
+
