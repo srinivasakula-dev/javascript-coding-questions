@@ -1,0 +1,31 @@
+// Input: {'a.b.c':1}
+// Output: {a:{b:{c:1}}}
+
+
+function unflatObj(obj) {
+  let result = {};
+
+  for (let key in obj) {
+    let value = obj[key];
+    let parts = key.split('.');
+
+    let current = result;
+
+    for (let i = 0; i < parts.length; i++) {
+      let part = parts[i];
+
+      if (i === parts.length - 1) {
+        current[part] = value; // assign final value
+      } else {
+        if (!current[part]) {
+          current[part] = {}; // create nested object if not exists
+        }
+        current = current[part];
+      }
+    }
+  }
+
+  return result;
+}
+
+console.log(unflatObj({ 'a.b.c': 1 }));
