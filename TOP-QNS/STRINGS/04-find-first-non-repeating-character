@@ -1,0 +1,17 @@
+// Find first non-repeating character
+let str = "swiss";
+let res = {};
+let op = "";
+
+for (let chr of str) {
+  res[chr] = (res[chr] || 0) + 1;
+}
+
+for (let chr of str) {
+  if (res[chr] === 1) {
+    op = chr;
+    break;
+  }
+}
+
+console.log(op);
