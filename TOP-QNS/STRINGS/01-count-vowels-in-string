@@ -1,0 +1,13 @@
+// Count vowels in string
+let str = "hello world"
+// Output: 3
+
+let count = 0
+let vowels = ['a', 'e', 'i', 'o', 'u']
+
+for(let chr of str){
+  if(vowels.includes(chr)){
+    count ++ 
+  }
+}
+console.log(count)
