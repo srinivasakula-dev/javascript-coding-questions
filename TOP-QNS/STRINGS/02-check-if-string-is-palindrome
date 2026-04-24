@@ -1,0 +1,16 @@
+// Check if string is palindrome
+let str = "madam"
+// Output: true
+
+let left = 0
+let right = str.length-1
+let result = true
+
+while(left < right){
+  if(str[left] != str[right]){
+    result = false
+  }
+    left ++ 
+    right --
+}
+console.log(result)
