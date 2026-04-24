@@ -1,0 +1,29 @@
+// Check if parentheses are balanced
+let str = "{[()]}"
+// Output: true
+
+
+let map = {
+  "{": "}",
+  "[": "]",
+  "(": ")"
+}
+
+let stack = []
+
+for (let char of str) {
+  if (map[char]) {
+    // opening bracket → push
+    stack.push(char);
+  } else {
+    // closing bracket → check match
+    let last = stack.pop();
+    console.log(last)
+    if (map[last] !== char) {
+      console.log(false);
+      return;
+    }
+  }
+}
+
+console.log(stack.length === 0)
