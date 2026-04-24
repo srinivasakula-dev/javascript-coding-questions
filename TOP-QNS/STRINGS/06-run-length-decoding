@@ -1,0 +1,14 @@
+// Run-length decoding
+let str = "a2b1c5a3"
+// Output: "aabcccccaaa"
+
+let res = ""
+
+for (let i = 0; i < str.length; i += 2) {
+  let char = str[i];
+  let count = Number(str[i + 1]);
+
+  res += char.repeat(count);
+}
+
+console.log(res); // "aabcccccaaa"
