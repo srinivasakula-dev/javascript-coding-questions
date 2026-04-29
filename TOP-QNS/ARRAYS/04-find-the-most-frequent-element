@@ -1,0 +1,19 @@
+// Find the most frequent element
+let arr =  [1, 3, 2, 3, 4, 3, 5]
+// Output: 3
+
+let res = arr.reduce((acc, curr)=>{
+    acc[curr] = (acc[curr] || 0) + 1 
+    return acc
+}, {})
+
+let mostFreq = 0;
+let mostFreqElement = null;
+
+for (let key in res) {
+  if (res[key] > mostFreq) {
+    mostFreq = res[key];
+    mostFreqElement = key;
+  }
+}
+console.log(Number(mostFreqElement));
