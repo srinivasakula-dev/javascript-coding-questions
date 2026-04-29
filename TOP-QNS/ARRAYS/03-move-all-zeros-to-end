@@ -1,0 +1,19 @@
+// Move all zeros to end
+let arr =  [0, 1, 0, 3, 12]
+// Output: [1, 3, 12, 0, 0]
+
+let nonZero = arr.filter(item=>item!=0)
+let zero = arr.filter(item=> item ==0)
+console.log([...nonZero, ...zero])
+
+
+
+let j = 0
+for(let i=0; i<arr.length; i++){
+  if(arr[i] != 0){
+    [arr[i], arr[j]] = [arr[j], arr[i]]
+    j++
+  }
+}
+
+console.log(arr)
