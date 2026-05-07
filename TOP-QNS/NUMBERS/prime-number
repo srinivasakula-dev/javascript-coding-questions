@@ -1,0 +1,21 @@
+// prime Number
+// A prime number is any positive integer greater than 1 that is divisible only by itself and 1.
+
+function MathChallenge(num){
+  if(num < 1) return 'false'
+  
+  if(num % 2 === 0) return 'false'
+  
+  if(num === 2) return 'true'
+  
+  for(let i= 3; i<=Math.sqrt(num); i+=2){
+    if(num % i === 0) return 'false'
+    
+  }
+  return true
+  
+}
+
+
+console.log(MathChallenge(19)); // Output: true
+console.log(MathChallenge(110)); // Output: false
