@@ -1,0 +1,5 @@
+//Q: find Longest word
+function LongestWord(sen){
+  return sen.split(" ").reduce((a, b)=>b.length > a.length ? b: a)
+}
+console.log(LongestWord("fun times have it")); // times
