@@ -3,10 +3,12 @@ function deepClone(obj){
     // const clone = structuredClone(obj)
     // const clone = JSON.parse(JSON.stringify(obj))
 
+     // primitive values
     if(typeof obj !== 'object' || obj === null){
         return obj
     }
-    
+
+     // create new object/array
     const clone = Array.isArray(obj) ? [] : {}
 
     for(let key in obj){
