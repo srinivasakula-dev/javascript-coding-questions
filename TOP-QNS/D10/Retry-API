@@ -1,0 +1,43 @@
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// retry implementation
+async function retry(fn, retries, delay) {
+  let lastError;
+
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await fn(); // success → return result immediately
+    } catch (err) {
+      lastError = err;
+
+      // if no retries left, throw error
+      if (attempt === retries) {
+        throw lastError;
+      }
+
+      // wait before next retry
+      await sleep(delay);
+    }
+  }
+}
+
+
+
+
+async function fetchData() {
+  const random = Math.random();
+
+  console.log("Trying API...");
+
+  if (random < 0.7) {
+    throw new Error("API failed");
+  }
+
+  return "Success!";
+}
+
+retry(fetchData, 3, 1000)
+  .then(result => console.log("Result:", result))
+  .catch(err => console.log("Final Error:", err.message));
