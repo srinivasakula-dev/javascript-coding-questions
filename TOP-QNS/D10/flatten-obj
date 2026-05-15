@@ -1,0 +1,26 @@
+function flatten(obj, prevKey="", result = {}, keys = Object.keys(obj), index = 0){
+
+    if(index >= keys.length){
+        return result
+    }
+
+    const key = keys[index]
+    const value = obj[key]
+
+    const newKey = prevKey ? prevKey + "." + key : key
+
+    if(typeof value === 'object' && value != null){
+        flatten(value, newKey, result)
+    }else{
+        result[newKey] = value 
+    }
+    return flatten(obj, prevKey, result, keys, index+1)
+}
+
+
+
+const obj = {a: {b: 1,c: {d: 2}},e: 3}
+// Output: { "a.b": 1, "a.c.d": 2, "e": 3 }
+
+
+console.log(flatten(obj))
