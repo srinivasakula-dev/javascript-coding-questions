@@ -1,0 +1,48 @@
+class LRUcache{
+//A constructor is a special function inside a class that runs automatically when you create an object.
+// Why do we use constructor? -> Initialize data once, Create reusable objects, 
+    constructor(limit){
+        this.limit = limit
+        this.cache = new Map()
+    }
+
+    get(key){
+        if(!this.cache.has(key)) return -1
+
+        // refresh usage(move to latest)
+
+        const value = this.cache.get(key)
+        this.cache.delete(key)
+        this.cache.set(key, value)
+
+        return value
+    }
+
+    put(key, value){
+        //if key exists -> remove it first
+        if(this.cache.has(key)){
+            this.cache.delete(key)
+        }
+
+        this.cache.set(key, value)
+
+        // if over limit -> removes oldest(first inserted)
+
+        if(this.cache.size > this.limit){
+            const oldestKey = this.cache.keys().next().value
+            this.cache.delete(oldestKey)
+        }
+    }
+}
+
+const cache = new LRUcache(3)
+
+cache.put(1, "A");
+cache.put(2, "B");
+cache.put(3, "C");
+
+cache.get(1);  // 1 becomes most recent
+
+cache.put(4, "D"); // removes 2
+
+console.log(cache.cache);
