@@ -1,0 +1,18 @@
+function debounce(fn, delay){
+    let timer = null
+
+    return function(...args){
+        clearTimeout(timer)
+        timer = setTimeout(()=>{
+            fn.apply(this, args)
+        }, delay)
+    }
+
+}
+const search = debounce(()=>{
+    console.log('logs')
+}, 1000)
+
+search()
+
+//What is (...args) ? -> This is called rest parameters. It means:Collect all arguments passed into an array. -> Whatever arguments user passes, store them in an array called args
