@@ -1,0 +1,33 @@
+function myPromiseAll(promises){
+    return new Promise((resolve, reject)=>{
+        if(!Array.isArray(promises)){
+            return reject(new TypeError('Argument must be array'))
+        }
+
+        const result = []
+        let completed = 0
+
+        promises.forEach((p, index)=>{
+            Promise.resolve(p).then((value)=>{
+                result[index] = value // maintain order
+                completed ++ 
+                if(completed === promises.length){
+                    resolve(result)
+                }
+            }).catch((err)=>{
+                reject(err)
+            })
+        })
+    })
+
+    if(promises.length === 0){
+        resolve([])
+    }
+
+}
+
+const p1 = Promise.resolve(1)
+const p2 = new Promise(res=>setTimeout(()=>res(2), 100))
+const p3 = Promise.resolve(3)
+
+myPromiseAll([p1, p2, p3]).then(console.log)
