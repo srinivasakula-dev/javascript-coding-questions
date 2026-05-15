@@ -1,0 +1,19 @@
+
+let res1 = {}
+for(let obj of users){
+    let key = obj.age
+    if(!res1[key]){
+        res1[key] = [obj]
+    }else{
+        res1[key].push(obj)
+    }
+}
+
+let res2 = users.reduce((acc, curr)=>{
+   (acc[curr.age] ||= []).push(curr)
+    return acc
+}, {})
+
+
+console.log(res1, 'res1')
+console.log(res2, 'res2')
