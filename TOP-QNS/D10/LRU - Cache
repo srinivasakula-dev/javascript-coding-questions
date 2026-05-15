@@ -1,3 +1,7 @@
+//Expected behavior:
+//remove least recently used item
+//maintain cache size
+
 class LRUcache{
 //A constructor is a special function inside a class that runs automatically when you create an object.
 // Why do we use constructor? -> Initialize data once, Create reusable objects, 
@@ -46,3 +50,6 @@ cache.get(1);  // 1 becomes most recent
 cache.put(4, "D"); // removes 2
 
 console.log(cache.cache);
+
+
+
