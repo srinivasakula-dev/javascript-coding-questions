@@ -1,0 +1,20 @@
+Array.prototype.myMap = function(callback){
+    const result = []
+    for(let i=0; i<this.length; i++){
+        const value = callback(this[i], i, this)
+        result.push(value)
+    }
+    return result
+}
+
+const polyArr = [1, 2, 3, 4]
+
+const res = polyArr.myMap( item=> item * 2 )
+console.log(res)
+
+
+// What is 'this' -> here 'this' refers to 'array / polyArr'.
+
+//callback(this[i], i, this) --->   ( item=> item * 2 )
+
+// here 'i' is index
