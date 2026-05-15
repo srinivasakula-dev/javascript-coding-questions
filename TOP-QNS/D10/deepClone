@@ -1,0 +1,39 @@
+function deepClone(obj){
+
+    // const clone = structuredClone(obj)
+    // const clone = JSON.parse(JSON.stringify(obj))
+
+    if(typeof obj !== 'object' || obj === null){
+        return obj
+    }
+    
+    const clone = Array.isArray(obj) ? [] : {}
+
+    for(let key in obj){
+        console.log(key, 'key')
+        clone[key] = deepClone(obj[key])
+    }
+    return clone
+}
+
+const obj1 = {
+  name: "Bro",
+  address: {
+    city: "Hyd"
+  }
+}
+
+const arr  = [1, 2, 3, 4, {a:25}]
+
+const cloned = deepClone(obj1)
+const arrCloned = deepClone(arr)
+
+cloned.address.city = "Vizag"
+arrCloned[4]['a'] = 30
+arrCloned[0]  = 25
+
+console.log(cloned)
+console.log(obj1)
+
+console.log(arr)
+console.log(arrCloned)
