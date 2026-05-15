@@ -1,0 +1,17 @@
+function findNonRepChr(str){
+    let map = {}
+
+    for(let chr of str){
+        map[chr] = (map[chr] || 0) + 1
+    }
+
+    for(let i of str){
+        if(map[i] === 1){
+            return i
+        }
+    }
+    return null
+}   
+
+const str = "aabccdeff"
+console.log(findNonRepChr(str))
