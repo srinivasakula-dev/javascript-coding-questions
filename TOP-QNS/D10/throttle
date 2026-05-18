@@ -1,0 +1,22 @@
+function throttle(fn, delay) {
+  let lastCalled = 0;          // timestamp of last execution
+
+  return function(...args) {
+    const now = Date.now();
+    const timeSinceLast = now - lastCalled;
+
+    if (timeSinceLast >= delay) {  // enough time passed?
+      lastCalled = now;            // update timestamp
+      return fn.apply(this, args); // fire the function
+    }
+    // else: skip this call silently
+  };
+}
+
+
+const tn = throttle(()=>{
+    console.log('Hello Throttel')
+}, 1000)
+
+tn()
+tn()
