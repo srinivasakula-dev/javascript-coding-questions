@@ -1,0 +1,15 @@
+function twoSumHashMap(arr, k){
+        let map = {}
+        let res = []
+    for(let i = 0; i < arr.length; i++) {
+        let target = k - arr[i]
+        if(map[target] !== undefined) {
+            res.push([map[target], i])
+        }
+        map[arr[i]] = i
+    }
+    return res
+}
+console.log(twoSumHashMap([3,2,4], 6))
+console.log(twoSumHashMap([1,2,3,4,5,6,7], 8))
+console.log(twoSumHashMap([2,7,11,15], 9))
