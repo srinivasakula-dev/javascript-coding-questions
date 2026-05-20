@@ -1,0 +1,18 @@
+
+function secondLargest(arr){
+    let largest = -Infinity
+    let second = -Infinity
+
+    for(let num of arr){
+        if(num > largest){
+            second = largest
+            largest = num
+        }else if(num > second && num !== largest){
+            second = num
+        }
+    }
+    return second
+}
+console.log(secondLargest([1,5,3,5,2])) // 3
+console.log(secondLargest([10,2,5]))    // 5
+}
