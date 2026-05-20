@@ -1,0 +1,15 @@
+
+function countKeys(obj){
+    let count = 0
+    for(let key in obj){
+         count++; 
+        if(obj[key] && typeof obj[key] == 'object'){
+             count += countKeys(obj[key]); // add nested keys
+        }
+    }
+    return count
+
+}
+
+console.log(countKeys({a:1, b:{c:2, d:{e:3}}})) // 5
+console.log(countKeys({x:1}))  //1
