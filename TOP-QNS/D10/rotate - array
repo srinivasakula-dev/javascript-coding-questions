@@ -1,0 +1,14 @@
+function rotate(arr, k){
+   let n = arr.length
+   k = k % n
+
+   let lastPart = arr.slice(-k)
+   let firstPart  = arr.slice(0, n-k)
+
+   return [...lastPart, ...firstPart ]
+
+
+}
+
+console.log(rotate([1,2,3,4,5], 2)) // [4,5,1,2,3]
+console.log(rotate([1,2,3], 4))    // [3,1,2]
