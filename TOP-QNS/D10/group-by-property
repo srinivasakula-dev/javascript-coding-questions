@@ -1,3 +1,14 @@
+const users = [
+  { name: "A", age: 20 },
+  { name: "B", age: 20 },
+  { name: "C", age: 25 }
+]
+op: {
+  '20': [ { name: 'A', age: 20 }, { name: 'B', age: 20 } ],
+  '25': [ { name: 'C', age: 25 } ]
+}
+//  group by property
+
 
 let res1 = {}
 for(let obj of users){
