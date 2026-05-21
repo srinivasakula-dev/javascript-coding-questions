@@ -1,0 +1,65 @@
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { loginAPI } from "./authApi";
+export const loginUser = createAsyncThunk("auth/login", async(data, thunkAPI)=>{
+    try{
+        const response = await loginAPI(data);
+        return response.result.data
+    }catch(error){
+        return thunkAPI.rejectWithValue(error.response?.data || "Login Failed")
+    }
+})
+const initialState={
+    useInfo:null,
+    token:null,
+    isLoading:false,
+    isAuthenticated:!!localStorage.getItem("token"),
+    error:"",
+    roleId:null,
+    tenantDetails:null
+}
+const authSlice = createSlice({
+    name:'auth',
+    initialState,
+    reducers:{
+        authRequest: (state) => {
+            state.loading = true;
+            state.error = null;
+        },
+        logout:(state)=>{
+            state.token = null
+            state.useInfo = null
+            state.isLoading = false
+            state.isAuthenticated = false
+            state.roleId = null
+            state.tenantDetails = null
+            localStorage.removeItem("token")
+            localStorage.removeItem("userInfo")
+            localStorage.removeItem("roleId")
+            localStorage.removeItem("tenantDetails")
+        }
+    },
+    extraReducers:(builder)=>{
+        builder
+        .addCase(loginUser.pending, (state)=>{
+            state.isLoading = true
+            state.error=""
+        })
+        .addCase(loginUser.fulfilled, (state, action)=>{
+            console.log(action.payload, 'action')
+            state.isLoading = false
+            state.useInfo = action.payload
+            state.token = action.payload.accessToken
+            state.isAuthenticated  = true
+            localStorage.setItem("token", action.payload.accessToken)
+            localStorage.setItem("userInfo", JSON.stringify(action.payload))
+            localStorage.setItem("roleId", action.payload.roleId)
+            localStorage.setItem("tenantDetails", JSON.stringify(action.payload.tenantDetails))
+        })
+        .addCase(loginUser.rejected, (state, action)=>{
+            state.isLoading = false
+            state.error = action.payload.error
+        })
+    }
+})
+export const {logout, authRequest} = authSlice.actions
+export default authSlice.reducer
