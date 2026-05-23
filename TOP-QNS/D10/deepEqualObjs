@@ -1,0 +1,64 @@
+function deepEqual(obj1, obj2) {
+
+    // 1. If both references point to the same value,
+    //    they are automatically equal
+    if (obj1 === obj2) return true;
+
+    // 2. If either is null (or undefined), they are not equal
+    //    (because typeof null is "object", so we must check this first)
+    if (obj1 == null || obj2 == null) return false;
+
+    // 3. If either is NOT an object (meaning it's a primitive like number, string, boolean)
+    //    and we already know they are not strictly equal (checked above),
+    //    then they are not equal
+    if (typeof obj1 !== "object" || typeof obj2 !== "object") {
+        return false;
+    }
+
+    // 4. Get all keys (properties) of both objects
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+
+    // 5. If number of keys is different → objects are not equal
+    if (keys1.length !== keys2.length) return false;
+
+    // 6. Loop through all keys in obj1
+    for (let key of keys1) {
+
+        // 7. If obj2 does NOT have this key → not equal
+        if (!keys2.includes(key)) return false;
+
+        // 8. Recursively compare values
+        //    This is the IMPORTANT part:
+        //    - if value is primitive → compares directly
+        //    - if value is object/array → goes deeper again
+        if (!deepEqual(obj1[key], obj2[key])) {
+            return false;
+        }
+    }
+
+    // 9. If all checks passed → objects are deeply equal
+    return true;
+}
+
+
+
+const obj3 = {
+    a: 1,
+    b: {
+        c: 2,
+        d: [1, 2, 3]
+    }
+};
+
+const obj4 = {
+    a: 1,
+    b: {
+        c: 2,
+        d: [1, 2, 3]
+    }
+};
+
+
+
+console.log(deepEqual(obj3, obj4), 'nes dep')
